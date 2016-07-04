@@ -1,6 +1,6 @@
-# node-qunit-phantomjs [![Build Status](https://travis-ci.org/jonkemp/node-qunit-phantomjs.svg?branch=master)](https://travis-ci.org/jonkemp/node-qunit-phantomjs)
+# fis-postprocessor-qunit-phantomjs [![Build Status](https://github.com/Milo-z/fis-postprocessor-qunit-phantomjs)](https://travis-ci.org/Milo-z/fis-postprocessor-qunit-phantomjs)
 
-[![NPM](https://nodei.co/npm/node-qunit-phantomjs.png?downloads=true)](https://nodei.co/npm/node-qunit-phantomjs/)
+[![NPM](https://nodei.co/npm/fis-postprocessor-qunit-phantomjs?downloads=true)](https://nodei.co/npm/fis-postprocessor-qunit-phantomjs/)
 
 > Run QUnit unit tests in a headless PhantomJS instance without using Grunt.
 
@@ -11,66 +11,23 @@ If you're using [gulp](https://github.com/gulpjs/gulp), you should take a look a
 
 ## Install
 
-Install with [npm](https://npmjs.org/package/node-qunit-phantomjs)
+Install with [npm](https://github.com/Milo-z/fis-postprocessor-qunit-phantomjs)
 
 globally:
 ```bash
-$ npm install -g node-qunit-phantomjs
+$ npm install -g fis-postprocessor-qunit-phantomjs
 ```
 
 or locally:
 ```bash
-$ npm install --save-dev node-qunit-phantomjs
+$ npm install --save-dev fis-postprocessor-qunit-phantomjs
 ```
 
 ## Usage
 
-Via command line:
-```bash
-$ node-qunit-phantomjs ./test/fixture.html
-```
-With options:
-```bash
-$ node-qunit-phantomjs ./test/fixture.html --verbose
-```
-Example setting the viewport size:
-
-```bash
-$ node-qunit-phantomjs ./test/fixture.html 5 '{"viewportSize":{"width":1000,"height":1000}}'
-```
-
-Or require it as a module:
-```js
-var qunit = require('node-qunit-phantomjs');
-
-qunit('./test/fixture.html');
-```
-
-Verbose option to output list as test cases pass or fail:
-```js
-var qunit = require('node-qunit-phantomjs');
-
-qunit('./test/fixture.html', { 'verbose': true });
-```
-
-Page option example to set the viewport size::
-```js
-var qunit = require('node-qunit-phantomjs');
-
-qunit('./test/fixture.html', {'page': {
-    viewportSize: { width: 1280, height: 800 }
-}});
-```
-
-Sample [gulp](https://github.com/gulpjs/gulp) task:
-```js
-var gulp = require('gulp'),
-    qunit = require('node-qunit-phantomjs');
-
-gulp.task('qunit', function() {
-    qunit('./test/fixture.html');
-});
-```
+	fis.match("**/test/*.html", {
+		postpackager: fis.plugin("qunit", options)
+	})
 
 ## API
 
@@ -116,4 +73,4 @@ A path to a custom PhantomJS runner script. A custom runner can be used to have 
 
 ## License
 
-MIT © [Jonathan Kemp](http://jonkemp.com)
+MIT © [Milo-z])
